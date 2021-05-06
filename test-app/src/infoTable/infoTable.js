@@ -17,7 +17,7 @@ const InfoTable = (props) => {
             let tdArray = []
             const validate = (key, quoted) => {
                 if (quoted === 'CUPCAKE') {
-                    return 1
+                    return props.data.cupcakeDefault
                 } else {
                    return props.data.markets[key].rates[quoted]
                 }

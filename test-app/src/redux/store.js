@@ -1,0 +1,11 @@
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import tableReducer from './tableReducer.js'
+
+let reducers = combineReducers({
+    tableReducer
+})
+
+let store = createStore(reducers, applyMiddleware(thunk))
+window.store = store
+export default store

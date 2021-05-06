@@ -1,0 +1,34 @@
+.info-table-container {
+    width: 80%;
+    max-width: 900px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-table {
+    width: 70%;
+    min-width: 350px;
+    border: var(--tableBorder);
+    background-color: var(--tableBgColor);
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+    border-bottom: var(--tableFragmentBorder);
+    border-right: var(--tableFragmentBorder);
+}
+td {
+    text-align: center;
+}
+tr:last-child > td {
+    border-bottom: none;
+}
+th:last-child {
+    border-right: none;
+}

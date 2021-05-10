@@ -1,16 +1,12 @@
 import { getDataFirst, getDataSecond, getDataThird } from '../DAL/getData'
-import Config from '../DAL/configUrl'
+import {config} from '../DAL/configUrl'
 
 const GET_DATA = 'GET_DATA'
 const GET_PAIR = 'GET_PAIR'
-const FIRST = 'FIRST'
-const SECOND = 'SECOND'
-const THIRD = 'THIRD'
-
-
+const SET_MARKETS = 'SET_MARKETS'
 
 let initialState = {
-    tableHead: [...Object.keys(Config)],
+    tableHead: [...Object.keys(config)],
     pair: [
         'RUB/CUPCAKE',
         'USD/CUPCAKE',
@@ -19,9 +15,7 @@ let initialState = {
         'RUB/EUR',
         'EUR/USD'
     ],
-    markets: {
-        
-    },
+    markets: {},
     cupcakeDefault: 1
 }
 
@@ -33,7 +27,7 @@ let tableReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-        case FIRST:
+        case SET_MARKETS:
             return {
                 ...state,
                 markets: {
@@ -56,9 +50,9 @@ export const getDataAC = () => {
     }
 }
 
-const setMarket = (first, second, third) => {
+const setMarketsAC = (first, second, third) => {
     return {
-        type: FIRST,
+        type: SET_MARKETS,
         markets: {
             first,
             second,
@@ -73,8 +67,7 @@ export const getDataThunk = () => {
         let first = await getDataFirst()
         let second = await getDataSecond()
         let third = await getDataThird()
-
-        dispatch(setMarket(first.data, second.data, third.data))
+        dispatch(setMarketsAC(first.data, second.data, third.data))
     }
 }
 

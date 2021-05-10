@@ -1,4 +1,4 @@
- const config = {
+export const config = {
     "Pair name/Market" : "Pair name/Market",
     First : {
         url : "http://localhost:3000/api/v1/first/poll",
@@ -13,5 +13,3 @@
         name : "Third"
     }
 }
-
-export default config
